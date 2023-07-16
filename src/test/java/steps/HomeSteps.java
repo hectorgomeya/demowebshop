@@ -2,11 +2,6 @@ package steps;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import pageObjects.HomePage;
@@ -41,17 +36,39 @@ public class HomeSteps {
     }
 */
 
-    @Given("Go to contact page")
-    public void gotoContactPage() {
-        homePage.goBooks();
-
-            }
 
 
     @And("Check than we can navigate to Books")
     public void checkBooks(){
+        homePage.goBooks();
         String currentUrl = testContext.getDriverManager().getDriver().getCurrentUrl();
         Assert.assertTrue(testContext.getDriverManager().getDriver().getCurrentUrl().contains("books"));
+
+    }
+
+    @And("Check than we can navigate to ComputersDesktops")
+    public void ComputersDes(){
+
+        homePage.goComputersDesktops();
+        Assert.assertTrue(testContext.getDriverManager().getDriver().getCurrentUrl().contains("desktops"));
+
+    }
+
+
+    @And("Check than we can navigate to Notebooks")
+    public void notebooks(){
+
+        homePage.goComputersLaptos();
+        Assert.assertTrue(testContext.getDriverManager().getDriver().getCurrentUrl().contains("notebooks"));
+
+    }
+
+    @And("Check than we can navigate to accessories")
+    public void accessors(){
+
+        homePage.goAccesories();
+        Assert.assertTrue(testContext.getDriverManager().getDriver().getCurrentUrl().contains("accessories"));
+
     }
 
 }

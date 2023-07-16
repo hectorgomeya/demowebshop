@@ -24,7 +24,7 @@ public class Hooks {
 
     @Before
     public void setUp() throws Exception {
-        startRecord("test");
+        //startRecord("test");
         webDriver = testContext.getDriverManager().getDriver();
         webDriver.get("https://demowebshop.tricentis.com/");
     }
@@ -40,7 +40,7 @@ public class Hooks {
             }
         }
         try {
-            stopRecord();
+         //   stopRecord();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
