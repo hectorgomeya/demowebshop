@@ -19,6 +19,10 @@ public class PageObjectManager {
 
     private BooksPage booksPage;
 
+    private CartPage cartPage;
+
+    private ShoesPage shoesPage;
+
 
     public Map<String, String> contextData;
 
@@ -37,5 +41,12 @@ public class PageObjectManager {
     public BooksPage getBooksPageage() {
         return (booksPage == null) ? booksPage = new BooksPage(driver, wait) : booksPage;
     }
+    public CartPage getCartPage() {
+        return (cartPage == null) ? cartPage = new CartPage(driver, wait) : cartPage;
+    }
 
+
+    public ShoesPage getShoesPage() {
+        return (shoesPage == null) ? shoesPage = new ShoesPage(driver, wait) : shoesPage;
+    }
 }

@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.Map;
 
-public class BooksPage {
+public class ShoesPage {
     private WebDriver driver;
     private WebDriverWait wait;
     private Map<String, String> contextData;
@@ -19,17 +19,14 @@ public class BooksPage {
 
 
 
-    @FindBy(xpath = "/html/body/div[4]/div[1]/div[4]/div[2]/div[2]/div[2]/div[3]/div[3]/div/div[2]/div[3]/div[2]/input")
+    @FindBy(xpath = "//html/body/div[4]/div[1]/div[4]/div[2]/div[2]/div[2]/div[3]/div[3]/div/div[2]/div[3]/div[2]/input")
     WebElement buttonAddToCart;
     //html/body/div[4]/div[1]/div[4]/div[2]/div[2]/div[2]/div[3]/div[1]/div/div[2]/div[3]/div[2]/input
     //html/body/div[4]/div[1]/div[4]/div[2]/div[2]/div[2]/div[3]/div[1]/div/div[2]/div[3]/div[2]/input
     //html/body/div[4]/div[1]/div[4]/div[2]/div[2]/div[2]/div[3]/div[3]/div/div[2]/div[3]/div[2]/input
-    //html/body/div[4]/div[1]/div[4]/div[2]/div[2]/div[2]/div[3]/div[3]/div/div[2]/div[3]/div[2]/input
-    //html/body/div[4]/div[1]/div[4]/div[2]/div[2]/div[2]/div[3]/div[3]/div/div[2]/h2/a
-
     @FindBy (xpath = "//*[@id=\"bar-notification\"]/p/text()")
     WebElement addedCorreted;
-    public BooksPage(WebDriver driver, WebDriverWait wait){
+    public ShoesPage(WebDriver driver, WebDriverWait wait){
         PageFactory.initElements(driver, this);
         this.driver = driver;
         this.wait = wait;
@@ -52,9 +49,8 @@ public class BooksPage {
 */
 
     public WebElement addToCart() {
-       // WebElement test = driver.findElement(By.className("Jeans"));
-        //test.getClass();
-                wait.until(ExpectedConditions.elementToBeClickable(buttonAddToCart)).click();
+
+        wait.until(ExpectedConditions.elementToBeClickable(buttonAddToCart)).click();
         return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"bar-notification\"]/p")));
 
 

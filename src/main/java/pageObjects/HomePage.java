@@ -29,6 +29,11 @@ public class HomePage {
     @FindBy(xpath = "/html/body/div[4]/div[1]/div[1]/div[2]/div[1]/ul/li[2]/a")
     WebElement loginButton;
 
+    @FindBy(xpath = "//*[@id=\"topcartlink\"]/a/span[1]")
+    WebElement cart;
+
+    @FindBy(xpath = "/html/body/div[4]/div[1]/div[2]/ul[1]/li[4]/a")
+    WebElement shoes;
 
 
     private WebDriver driver;
@@ -75,7 +80,18 @@ public class HomePage {
 
     }
 
+    public void goCart() {
+        wait.until(ExpectedConditions.elementToBeClickable(cart)).click();
 
+
+    }
+
+
+    public void goShoes() {
+        wait.until(ExpectedConditions.elementToBeClickable(shoes)).click();
+
+
+    }
 
 
 

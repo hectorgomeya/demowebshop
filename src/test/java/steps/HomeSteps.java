@@ -77,5 +77,19 @@ public class HomeSteps {
         Assert.assertTrue(testContext.getDriverManager().getDriver().getCurrentUrl().contains("login"));
 
     }
+    @Given("Go to cart")
+    public void cart() {
+        homePage.goCart();
+        Assert.assertTrue(testContext.getDriverManager().getDriver().getCurrentUrl().contains("cart"));
+
+    }
+
+    @And("Check than we can navigate to shoes")
+    public void shoes() {
+
+        homePage.goShoes();
+        Assert.assertTrue(testContext.getDriverManager().getDriver().getCurrentUrl().contains("apparel-shoes"));
+
+    }
 
 }
