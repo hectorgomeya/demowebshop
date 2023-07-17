@@ -33,5 +33,23 @@ public class CartSteps {
 
     }
 
+    @Given("Estimate a shipping")
+    public void shippong()
+
+    {
+        WebElement shiping =  cartPage.estimatedShipping();
+        Assert.assertTrue(shiping.getText()
+                .contains("Compared to other shipping methods, like by flight or over seas, ground shipping is carried out closer to the earth"));
+
+
+    }
+    @Given("Go to checkout")
+    public void checkOut(){
+        cartPage.checkOut();
+        Assert.assertTrue(testContext.getDriverManager().getDriver().getCurrentUrl().contains("onepagecheckout"));
+
+    }
+
+
 
 }

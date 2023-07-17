@@ -27,6 +27,7 @@ public class Hooks {
         //startRecord("test");
         webDriver = testContext.getDriverManager().getDriver();
         webDriver.get("https://demowebshop.tricentis.com/");
+
     }
 
     @After

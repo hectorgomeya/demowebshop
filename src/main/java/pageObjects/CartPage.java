@@ -26,8 +26,22 @@ public class CartPage {
     @FindBy(xpath = "/html/body/div[4]/div[1]/div[4]/div/div/div[2]/div/form/div[1]/div/input[1]")
     WebElement updateCart;
 
-    @FindBy (xpath = "//*[@id=\"bar-notification\"]/p/text()")
-    WebElement addedCorreted;
+
+    @FindBy (xpath = "//*[@id=\"CountryId\"]")
+    WebElement shipping;
+
+    @FindBy (xpath = "//*[@id=\"ZipPostalCode\"]")
+    WebElement zipCode;
+
+    @FindBy (xpath = "/html/body/div[4]/div[1]/div[4]/div/div/div[2]/div/form/div[2]/div[1]/div[2]/div/div[3]/div[4]/input")
+    WebElement buttonShipping;
+
+    @FindBy (xpath = "//*[@id=\"termsofservice\"]")
+    WebElement agreeTerms;
+
+    @FindBy (xpath = "//*[@id=\"checkout\"]")
+    WebElement checkOutButton;
+
     public CartPage(WebDriver driver, WebDriverWait wait){
         PageFactory.initElements(driver, this);
         this.driver = driver;
@@ -80,4 +94,21 @@ public class CartPage {
 
 
     }
+
+     public WebElement estimatedShipping()
+     {
+         shipping.sendKeys("Spain");
+         zipCode.sendKeys("46018");
+         buttonShipping.click();
+
+         return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//html/body/div[4]/div[1]/div[4]/div/div/div[2]/div/form/div[2]/div[1]/div[2]/div/ul/li[1]/span")));
+
+
+     }
+
+
+     public void checkOut() {
+        agreeTerms.click();
+        checkOutButton.click();
+             }
 }

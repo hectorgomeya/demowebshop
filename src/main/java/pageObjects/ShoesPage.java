@@ -21,9 +21,7 @@ public class ShoesPage {
 
     @FindBy(xpath = "//html/body/div[4]/div[1]/div[4]/div[2]/div[2]/div[2]/div[3]/div[3]/div/div[2]/div[3]/div[2]/input")
     WebElement buttonAddToCart;
-    //html/body/div[4]/div[1]/div[4]/div[2]/div[2]/div[2]/div[3]/div[1]/div/div[2]/div[3]/div[2]/input
-    //html/body/div[4]/div[1]/div[4]/div[2]/div[2]/div[2]/div[3]/div[1]/div/div[2]/div[3]/div[2]/input
-    //html/body/div[4]/div[1]/div[4]/div[2]/div[2]/div[2]/div[3]/div[3]/div/div[2]/div[3]/div[2]/input
+
     @FindBy (xpath = "//*[@id=\"bar-notification\"]/p/text()")
     WebElement addedCorreted;
     public ShoesPage(WebDriver driver, WebDriverWait wait){
@@ -32,21 +30,6 @@ public class ShoesPage {
         this.wait = wait;
 
     }
-    /*
-
-    public void getPrice(){
-        contextData.put("price",wait.until(ExpectedConditions.visibilityOf(priceContainer)).getText().split(" ")[0].split("\\$")[1]);
-    }
-
-    public void getProduct(){
-        contextData.put("product",wait.until(ExpectedConditions.visibilityOf(productName)).getText());
-    }
-
-    public void goToCart(){
-        wait.until(ExpectedConditions.elementToBeClickable(buttonAddToCart)).click();
-        wait.until(ExpectedConditions.alertIsPresent()).accept();
-    }
-*/
 
     public WebElement addToCart() {
 

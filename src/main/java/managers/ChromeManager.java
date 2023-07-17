@@ -10,6 +10,7 @@ import java.time.Duration;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 public class ChromeManager {
 
@@ -37,8 +38,9 @@ public class ChromeManager {
 
     //Si no hay wait lo crea
     public WebDriverWait getWait(){
-        if (wait == null)
-            wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        if (wait == null) {
+            wait = new WebDriverWait(driver, Duration.ofSeconds(4500));
+        }
         return wait;
     }
     public Map<String, String> getMyMap(){

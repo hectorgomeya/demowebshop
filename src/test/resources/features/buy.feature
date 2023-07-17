@@ -7,7 +7,9 @@ Feature: Navigation
     And Check than we can navigate to shoes
     And Buy a shoes
     And Go to cart
-    And Delete a buy
+    And Estimate a shipping
+    And Go to checkout
+    And Set data check out
 
   Scenario: Navigation Desktops
     Then Check than we can navigate to ComputersDesktops

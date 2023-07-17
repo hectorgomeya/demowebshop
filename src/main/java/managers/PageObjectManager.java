@@ -23,6 +23,8 @@ public class PageObjectManager {
 
     private ShoesPage shoesPage;
 
+    private CheckOutPage checkOutPage;
+
 
     public Map<String, String> contextData;
 
@@ -48,5 +50,9 @@ public class PageObjectManager {
 
     public ShoesPage getShoesPage() {
         return (shoesPage == null) ? shoesPage = new ShoesPage(driver, wait) : shoesPage;
+    }
+
+    public CheckOutPage getCheckOutPage() {
+        return (checkOutPage == null) ? checkOutPage = new CheckOutPage(driver, wait) : checkOutPage;
     }
 }
