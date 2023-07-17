@@ -1,13 +1,14 @@
 Feature: Login Test Cases
-  Scenario: login failed
-    Then Check than we can navigate to Books
-
-  Scenario: login failed
-    Then Check than we can navigate to ComputersDesktops
 
 
-  Scenario: login failed
-    Then Check than we can navigate to Notebooks
+  Scenario: login correct
+Given Go to login button
+Then Insert user "hectorgomeya@gmail.com" and password "1qaz2wsx" and "correcto"
 
-  Scenario: login failed
-    Then Check than we can navigate to accessories
+  Scenario: login incorrect
+    Given Go to login button
+    Then Insert user "hectorgomeya@gmail.com" and password "121sa121" and "incorrect"
+
+  Scenario: bad email
+    Given Go to login button
+    Then Insert user "hectorgomeya" and password "null" and "mailincorrecto"

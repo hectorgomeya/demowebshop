@@ -26,6 +26,9 @@ public class HomePage {
     @FindBy(xpath = "/html/body/div[4]/div[1]/div[2]/ul[1]/li[2]/ul/li[3]/a")
     WebElement accesories;
 
+    @FindBy(xpath = "/html/body/div[4]/div[1]/div[1]/div[2]/div[1]/ul/li[2]/a")
+    WebElement loginButton;
+
 
 
     private WebDriver driver;
@@ -63,6 +66,12 @@ public class HomePage {
         Actions builder = new Actions(driver);
         builder.moveToElement(computers).perform();
         wait.until(ExpectedConditions.elementToBeClickable(accesories)).click();
+
+    }
+
+    public void goLoginButton() {
+        wait.until(ExpectedConditions.elementToBeClickable(loginButton)).click();
+
 
     }
 

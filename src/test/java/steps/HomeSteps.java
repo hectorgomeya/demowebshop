@@ -13,7 +13,7 @@ public class HomeSteps {
 
     private WebDriverWait wait;
 
-    public HomeSteps(TestContext testContext){
+    public HomeSteps(TestContext testContext) {
         this.testContext = testContext;
         homePage = testContext.getPageObjectManager().getHomePage();
         wait = testContext.getDriverManager().getWait();
@@ -37,9 +37,8 @@ public class HomeSteps {
 */
 
 
-
     @And("Check than we can navigate to Books")
-    public void checkBooks(){
+    public void checkBooks() {
         homePage.goBooks();
         String currentUrl = testContext.getDriverManager().getDriver().getCurrentUrl();
         Assert.assertTrue(testContext.getDriverManager().getDriver().getCurrentUrl().contains("books"));
@@ -47,7 +46,7 @@ public class HomeSteps {
     }
 
     @And("Check than we can navigate to ComputersDesktops")
-    public void ComputersDes(){
+    public void ComputersDes() {
 
         homePage.goComputersDesktops();
         Assert.assertTrue(testContext.getDriverManager().getDriver().getCurrentUrl().contains("desktops"));
@@ -56,7 +55,7 @@ public class HomeSteps {
 
 
     @And("Check than we can navigate to Notebooks")
-    public void notebooks(){
+    public void notebooks() {
 
         homePage.goComputersLaptos();
         Assert.assertTrue(testContext.getDriverManager().getDriver().getCurrentUrl().contains("notebooks"));
@@ -64,10 +63,18 @@ public class HomeSteps {
     }
 
     @And("Check than we can navigate to accessories")
-    public void accessors(){
+    public void accessors() {
 
         homePage.goAccesories();
         Assert.assertTrue(testContext.getDriverManager().getDriver().getCurrentUrl().contains("accessories"));
+
+    }
+
+    @Given("Go to login button")
+    public void login() {
+
+        homePage.goLoginButton();
+        Assert.assertTrue(testContext.getDriverManager().getDriver().getCurrentUrl().contains("login"));
 
     }
 

@@ -1,5 +1,6 @@
 package pageObjects;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -14,20 +15,20 @@ public class BooksPage {
     private WebDriverWait wait;
     private Map<String, String> contextData;
 
-    @FindBy(xpath = "/html/body/div[4]/div[1]/div[4]/div[2]/div[2]/div[1]/h1")
-    WebElement productName;
 
-    @FindBy(className = "price-container")
-    WebElement priceContainer;
 
-    @FindBy(xpath = "//a[text()=\"Add to cart\"]")
+
+
+    @FindBy(xpath = "//html/body/div[4]/div[1]/div[4]/div[2]/div[2]/div[2]/div[3]/div[1]/div/div[2]/div[3]/div[2]/input")
     WebElement buttonAddToCart;
-    public BooksPage(WebDriver driver, WebDriverWait wait, Map<String, String> contextData){
+
+    @FindBy (xpath = "//*[@id=\"bar-notification\"]/p/text()")
+    WebElement addedCorreted;
+    public BooksPage(WebDriver driver, WebDriverWait wait){
         PageFactory.initElements(driver, this);
         this.driver = driver;
         this.wait = wait;
 
-        this.contextData = contextData;
     }
     /*
 
@@ -45,4 +46,12 @@ public class BooksPage {
     }
 */
 
+    public WebElement addToCart() {
+        wait.until(ExpectedConditions.elementToBeClickable(buttonAddToCart)).click();
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"bar-notification\"]/p")));
+
+
+
+
+    }
 }

@@ -1,5 +1,6 @@
 package managers;
 
+import org.apache.commons.logging.Log;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pageObjects.*;
@@ -14,6 +15,10 @@ public class PageObjectManager {
 
     private HomePage homePage;
 
+    private LoginPage loginPage;
+
+    private BooksPage booksPage;
+
 
     public Map<String, String> contextData;
 
@@ -25,6 +30,12 @@ public class PageObjectManager {
 
     public HomePage getHomePage() {
         return (homePage == null) ? homePage = new HomePage(driver, wait) : homePage;
+    }
+    public LoginPage getLoginPagePage() {
+        return (loginPage == null) ? loginPage = new LoginPage(driver, wait) : loginPage;
+    }
+    public BooksPage getBooksPageage() {
+        return (booksPage == null) ? booksPage = new BooksPage(driver, wait) : booksPage;
     }
 
 }
