@@ -38,7 +38,7 @@ public class LoginSteps {
             case "incorrecto":
                 WebElement loginCheckIncorrect = loginPage.login(username, password, flag);
 
-                Assert.assertTrue(loginCheckIncorrect.getText().contains("Login was unsuccessful"));
+                Assert.assertTrue(loginCheckIncorrect.getText().contains("Login was unsuccessfusasl"));
                 break;
 
             case "mailincorrecto":
