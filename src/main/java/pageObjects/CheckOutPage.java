@@ -52,6 +52,9 @@ public class CheckOutPage {
     }
 
 
+
+
+
     public void setData()
 
     {
@@ -63,6 +66,14 @@ public class CheckOutPage {
         phoneNumber.sendKeys("789456");
         WebElement continueButton = driver.findElement(By.xpath("//*[@id=\"billing-buttons-container\"]/input"));
         continueButton.click();
+
+
+    }
+
+    public WebElement checkOutWithOutAccept()
+    {
+        WebElement termsSerive = driver.findElement(By.xpath("//*[@id=\"terms-of-service-warning-box\"]/p"));
+        return termsSerive;
 
 
     }

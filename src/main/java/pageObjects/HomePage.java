@@ -66,13 +66,17 @@ public class HomePage {
                 builder3.moveToElement(computers).perform();
                 wait.until(ExpectedConditions.elementToBeClickable(accesories)).click();
                 break;
+
+            case "shoes":
+                wait.until(ExpectedConditions.elementToBeClickable(shoes)).click();
+                break;
         }
     }
 
     public WebElement findProduct(String product, String category){
         selectCategory(category);
-
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[contains(text(), \""+ product +"\")]"))).click();
+      WebElement productElement = driver.findElement(By.linkText(product));
+      productElement.click();
        WebElement currentItem = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div[4]/div[1]/div[4]/div[2]/div[1]/ul/li[3]\n")));
 
         return currentItem;

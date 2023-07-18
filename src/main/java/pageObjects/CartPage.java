@@ -111,4 +111,9 @@ public class CartPage {
         agreeTerms.click();
         checkOutButton.click();
              }
+
+
+    public void checkOutNoTerms() {
+        checkOutButton.click();
+    }
 }
