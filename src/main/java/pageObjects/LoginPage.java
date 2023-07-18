@@ -42,7 +42,7 @@ public class LoginPage {
 
         switch (flag)
     {
-            case "incorrecto":
+            case "incorrect":
                 wait.until(ExpectedConditions.visibilityOf(this.email)).sendKeys(username);
                 wait.until(ExpectedConditions.visibilityOf(this.password)).sendKeys(password);
                 wait.until(ExpectedConditions.elementToBeClickable(this.login)).click();
