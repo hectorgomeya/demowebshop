@@ -31,11 +31,12 @@ public class ShoesPage {
 
     }
 
-    public WebElement addToCart() {
+    public String addToCart() {
 
         wait.until(ExpectedConditions.elementToBeClickable(buttonAddToCart)).click();
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"bar-notification\"]/p")));
-
+        String message =  wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"bar-notification\"]/p"))).getText();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='bar-notification']/span"))).click();
+        return message;
 
 
 

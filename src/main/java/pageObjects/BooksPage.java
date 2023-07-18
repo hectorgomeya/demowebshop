@@ -51,14 +51,16 @@ public class BooksPage {
     }
 */
 
-    public WebElement addToCart() {
+    public String addToCart() {
        // WebElement test = driver.findElement(By.className("Jeans"));
         //test.getClass();
-                wait.until(ExpectedConditions.elementToBeClickable(buttonAddToCart)).click();
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"bar-notification\"]/p")));
+        wait.until(ExpectedConditions.elementToBeClickable(buttonAddToCart)).click();
+        String message =  wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"bar-notification\"]/p"))).getText();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='bar-notification']/span"))).click();
 
+        return message;
 
-
+//*[@id="bar-notifica
 
     }
 }

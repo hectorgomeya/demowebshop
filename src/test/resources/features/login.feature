@@ -1,9 +1,10 @@
 Feature: Login Test Cases
 
 
-  Scenario: login correct
+  Scenario: login correct and log_out
 Given Go to login button
 Then Insert user "hectorgomeya@gmail.com" and password "1qaz2wsx" and "correcto"
+    And Log out from demowebshop
 
   Scenario: login incorrect
     Given Go to login button

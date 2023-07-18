@@ -26,9 +26,8 @@ public class ShoesSteps {
     public void shoes()
 
     {
-        WebElement comprar = shoesPage.addToCart(); //The product has been added to your
-        String test = comprar.getText();
-        Assert.assertTrue(comprar.getText().contains("The product has been added to your "));
+        String comprar = shoesPage.addToCart(); //The product has been added to your
+        Assert.assertTrue(comprar.contains("The product has been added to your "));
 
 
     }

@@ -37,6 +37,8 @@ public class CheckOutPage {
     @FindBy(xpath = "//*[@id=\"BillingNewAddress_FaxNumber\"]")
     WebElement FaxNumber;
 
+    @FindBy(xpath = "//*[@id=\"BillingNewAddress_PhoneNumber\"]")
+    WebElement phoneNumber;
 
 
 
@@ -58,6 +60,10 @@ public class CheckOutPage {
         cityAddres2.sendKeys("2121s0");
         FaxNumber.sendKeys("123456789");
         postalCode.sendKeys("46820");
+        phoneNumber.sendKeys("789456");
+        WebElement continueButton = driver.findElement(By.xpath("//*[@id=\"billing-buttons-container\"]/input"));
+        continueButton.click();
+
 
     }
 

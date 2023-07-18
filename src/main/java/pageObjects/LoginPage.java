@@ -24,8 +24,12 @@ public class LoginPage {
     @FindBy(xpath = "/html/body/div[4]/div[1]/div[4]/div[2]/div/div[2]/div[1]/div[2]/div[2]/form/div[5]/input")
     WebElement login;
 
-    @FindBy (xpath = "/html/body/div[4]/div[1]/div[4]/div[2]/div/div[2]/div[1]/div[2]/div[2]/form/div[1]/div/span")
-    WebElement errorLogin;
+
+    @FindBy (xpath = "/html/body/div[4]/div[1]/div[1]/div[2]/div[1]/ul/li[2]/a")
+    WebElement logOut;
+
+    @FindBy (xpath = "\"/html/body/div[4]/div[1]/div[1]/div[2]/div[1]/ul/li[1]/a\"")
+    WebElement test;
     public LoginPage(WebDriver driver, WebDriverWait wait){
         PageFactory.initElements(driver, this);
         this.driver = driver;
@@ -58,6 +62,15 @@ public class LoginPage {
         }
 
     return null;
+
+    }
+
+    public String logOut() {
+        wait.until(ExpectedConditions.elementToBeClickable(this.logOut)).click();
+        WebElement registrer = driver.findElement(By.xpath("/html/body/div[4]/div[1]/div[1]/div[2]/div[1]/ul/li[1]/a"));
+        String a2 =   registrer.getText();
+        return a2;
+
 
     }
 

@@ -1,5 +1,6 @@
 package steps;
 
+import io.cucumber.java.bs.A;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -47,6 +48,14 @@ public class LoginSteps {
 
 
         }
+
+    }
+
+    @And("Log out from demowebshop")
+    public void logOut() {
+        String result = loginPage.logOut();
+        Assert.assertTrue(result.contains("Register"));
+
 
     }
 
