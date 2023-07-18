@@ -76,7 +76,7 @@ public class HomePage {
     public WebElement findProduct(String product, String category){
         selectCategory(category);
       WebElement productElement = driver.findElement(By.linkText(product));
-      productElement.click();
+        wait.until(ExpectedConditions.elementToBeClickable(productElement)).click();
        WebElement currentItem = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div[4]/div[1]/div[4]/div[2]/div[1]/ul/li[3]\n")));
 
         return currentItem;
