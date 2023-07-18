@@ -9,23 +9,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class PageObjectManager {
-
     private final WebDriver driver;
     private final WebDriverWait wait;
-
     private HomePage homePage;
-
     private LoginPage loginPage;
-
-    private BooksPage booksPage;
-
     private CartPage cartPage;
-
-    private ShoesPage shoesPage;
-
     private CheckOutPage checkOutPage;
-
-
+    private ProductPage productPage;
     public Map<String, String> contextData;
 
     public PageObjectManager(WebDriver driver, WebDriverWait wait, Map<String, String> contextData){
@@ -38,21 +28,12 @@ public class PageObjectManager {
         return (homePage == null) ? homePage = new HomePage(driver, wait) : homePage;
     }
     public LoginPage getLoginPagePage() {
-        return (loginPage == null) ? loginPage = new LoginPage(driver, wait) : loginPage;
-    }
-    public BooksPage getBooksPageage() {
-        return (booksPage == null) ? booksPage = new BooksPage(driver, wait) : booksPage;
-    }
+        return (loginPage == null) ? loginPage = new LoginPage(driver, wait) : loginPage;    }
     public CartPage getCartPage() {
         return (cartPage == null) ? cartPage = new CartPage(driver, wait) : cartPage;
     }
-
-
-    public ShoesPage getShoesPage() {
-        return (shoesPage == null) ? shoesPage = new ShoesPage(driver, wait) : shoesPage;
-    }
-
     public CheckOutPage getCheckOutPage() {
-        return (checkOutPage == null) ? checkOutPage = new CheckOutPage(driver, wait) : checkOutPage;
-    }
+        return (checkOutPage == null) ? checkOutPage = new CheckOutPage(driver, wait) : checkOutPage;    }
+    public ProductPage getProductPage() {
+        return (productPage == null) ? productPage = new ProductPage(driver, wait) : productPage;    }
 }

@@ -45,6 +45,40 @@ public class HomePage {
         this.wait = wait;
     }
 
+
+    private void selectCategory(String category){
+        switch (category.toLowerCase()){
+            case "books":
+                wait.until(ExpectedConditions.visibilityOf(books)).click();
+                break;
+            case "desktop":
+                Actions builder = new Actions(driver);
+                builder.moveToElement(computers).perform();
+                wait.until(ExpectedConditions.elementToBeClickable(desktop)).click();
+                break;
+            case "laptops":
+                Actions builder2 = new Actions(driver);
+                builder2.moveToElement(computers).perform();
+                wait.until(ExpectedConditions.elementToBeClickable(noteBooks)).click();
+                break;
+            case "accesories":
+                Actions builder3 = new Actions(driver);
+                builder3.moveToElement(computers).perform();
+                wait.until(ExpectedConditions.elementToBeClickable(accesories)).click();
+                break;
+        }
+    }
+
+    public WebElement findProduct(String product, String category){
+        selectCategory(category);
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[contains(text(), \""+ product +"\")]"))).click();
+       WebElement currentItem = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div[4]/div[1]/div[4]/div[2]/div[1]/ul/li[3]\n")));
+
+        return currentItem;
+    }
+
+
     public void goBooks() { wait.until(ExpectedConditions.elementToBeClickable(books)).click();
 
     }

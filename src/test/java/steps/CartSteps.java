@@ -4,7 +4,6 @@ import io.cucumber.java.en.Given;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import pageObjects.BooksPage;
 import pageObjects.CartPage;
 import utilities.TestContext;
 

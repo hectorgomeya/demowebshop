@@ -2,20 +2,28 @@ package steps;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import pageObjects.HomePage;
+import pageObjects.ProductPage;
 import utilities.TestContext;
 
 public class HomeSteps {
     HomePage homePage;
     TestContext testContext;
 
+    ProductPage productPage;
+
     private WebDriverWait wait;
 
     public HomeSteps(TestContext testContext) {
         this.testContext = testContext;
         homePage = testContext.getPageObjectManager().getHomePage();
+        productPage = testContext.getPageObjectManager().getProductPage();
+
         wait = testContext.getDriverManager().getWait();
     }
 /*
@@ -90,6 +98,19 @@ public class HomeSteps {
         homePage.goShoes();
         Assert.assertTrue(testContext.getDriverManager().getDriver().getCurrentUrl().contains("apparel-shoes"));
 
+    }
+
+    @Then("Find product \"(.*)\" and category \"(.*)\"$")
+    public void findProduct(String product, String category){
+        WebElement currentUrl = homePage.findProduct(product, category);
+        String prodUPPER = product.toUpperCase();
+        Assert.assertTrue(currentUrl.getText().contains(prodUPPER));
+    }
+
+    @Then("Buy a product")
+    public void buyProduct()
+    {
+    productPage.addCart();;
     }
 
 }
