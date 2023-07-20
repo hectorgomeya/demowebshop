@@ -1,21 +1,15 @@
 package steps;
 
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
-import io.cucumber.java.Scenario;
+import io.cucumber.java.*;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import utilities.TestContext;
-import utilities.ScreenRecorderUtil;
-
-import static utilities.ScreenRecorderUtil.*;
 
 public class Hooks {
     TestContext testContext;
     WebDriver webDriver;
-
 
     public Hooks(TestContext context)
     {
@@ -24,12 +18,11 @@ public class Hooks {
 
     @Before
     public void setUp() throws Exception {
-        startRecord("test");
+      //  startRecord("test");
         webDriver = testContext.getDriverManager().getDriver();
         webDriver.get("https://demowebshop.tricentis.com/");
 
     }
-
 
     @After
     public void tearDown(Scenario scenario) throws Exception {
@@ -42,11 +35,12 @@ public class Hooks {
             }
         }
         try {
-          stopRecord();
+        //  stopRecord();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
      testContext.getDriverManager().tearDown();
 
     }
+
 }
