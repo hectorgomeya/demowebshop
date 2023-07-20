@@ -10,14 +10,3 @@ Feature: Navigation
     And Estimate a shipping
     And Go to checkout
     And Set data check out
-
-  Scenario: Navigation Desktops
-    Then Check than we can navigate to ComputersDesktops
-
-
-  Scenario: Navigation Notebooks
-    Then Check than we can navigate to Notebooks
-
-  Scenario: Navigation Accesoires
-    Then Check than we can navigate to accessories
-

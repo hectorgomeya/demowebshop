@@ -40,6 +40,8 @@ public class CheckOutPage {
     @FindBy(xpath = "//*[@id=\"BillingNewAddress_PhoneNumber\"]")
     WebElement phoneNumber;
 
+    @FindBy(id = "BillingNewAddress_CountryId")
+    WebElement country;
 
 
 
@@ -58,6 +60,7 @@ public class CheckOutPage {
     public void setData()
 
     {
+        country.sendKeys("Spain");
         city.sendKeys("sasa");
         cityAddres.sendKeys("asas");
         cityAddres2.sendKeys("2121s0");

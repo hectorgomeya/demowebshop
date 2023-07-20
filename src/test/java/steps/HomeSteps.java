@@ -113,4 +113,20 @@ public class HomeSteps {
     productPage.addCart();;
     }
 
+    @And("Review a product \"(.*)\"  \"(.*)\"  \"(.*)\"$")
+    public void review(String review, String test, String puntuacion)
+    {
+
+        productPage.addReview();
+        WebElement message = productPage.review();
+        Assert.assertTrue(!message.getText().contains("Only registered users can write reviews"));
+        WebElement message2 = productPage.reviewProduct(review, test, puntuacion);
+        Assert.assertTrue(message2.getText().contains("Product review is successfully added."));
+
+
+
+
+
+    }
+
 }
