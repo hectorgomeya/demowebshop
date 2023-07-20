@@ -22,11 +22,18 @@ public class CheckOutSteps {
         wait = testContext.getDriverManager().getWait();
     }
 
-    @Given("Set data check out")
-    public void setCheckOut()
+    @Given("Set data check out Name: \"(.*)\" Second Name \"(.*)\" Country \"(.*)\" City \"(.*)\" and postal code \"(.*)\" and number \"(.*)\" and direccion \"(.*)\"$" )
+    public void setCheckOut(String nombre, String apellidos, String pais, String ciudad, String postalcode, String number, String direccion)
 
     {
-   checkOut.setData();
+        String direccionCompleta = nombre+" "+apellidos+", "+direccion+", "+ciudad+" "+postalcode+", "+pais;
+        String billing = checkOut.setData(nombre, apellidos, pais,ciudad,postalcode, number, direccion);
+        Assert.assertTrue(billing.contains(direccionCompleta));
+
+
+        WebElement setData = checkOut.fase2(nombre, apellidos, pais,ciudad,postalcode, number, direccion);
+        Assert.assertTrue(setData.getText().contains("Your order has been successfully processed!"));
+
 
 
     }
