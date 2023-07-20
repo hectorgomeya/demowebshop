@@ -42,7 +42,7 @@ public class LoginSteps {
 
             case "mailincorrecto":
                 WebElement emailIncorrecto = loginPage.login(username, password, flag);
-                Assert.assertTrue(!emailIncorrecto.getText().contains("Please enter a valid email address."));
+                Assert.assertTrue(emailIncorrecto.getText().contains("Please enter a valid email address."));
 
 
 
