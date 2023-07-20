@@ -44,9 +44,9 @@ public class ProductPage {
         titlereview.sendKeys(test);
         String puntuacion2 = "addproductrating_" + puntuacionPro;
         WebElement puntuacion = driver.findElement(By.id(puntuacion2));
-        puntuacion.click();
+        wait.until(ExpectedConditions.elementToBeClickable(puntuacion)).click();
         WebElement submit = driver.findElement(By.xpath("//*[@id=\"review-form\"]/form/div[3]/input"));
-        submit.click();
+        wait.until(ExpectedConditions.elementToBeClickable(submit)).click();
         WebElement message = driver.findElement(By.xpath("/html/body/div[4]/div[1]/div[4]/div[2]/div/div[2]/div[1]"));
         return message;
 

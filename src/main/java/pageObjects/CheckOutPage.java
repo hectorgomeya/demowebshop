@@ -58,23 +58,18 @@ public class CheckOutPage {
 
     public String setData(String nombre, String apellidos, String pais, String ciudad, String postalcode, String number, String direccion) {//*[@id="shipping-buttons-container"]/input
         WebElement continueButton = driver.findElement(By.xpath("//*[@id=\"billing-buttons-container\"]/input"));
-
-        String direccionCompleta = nombre+" "+apellidos+", "+direccion+", "+ciudad+" "+postalcode+", "+pais;
-    //Hector Gomez, 12, Valencia 44521, Angola
         if (country.isDisplayed()) {
-    name.clear();
-    secondname.clear();
-    name.sendKeys(nombre);
-    secondname.sendKeys(apellidos);
-    country.sendKeys(pais);
-    city.sendKeys(ciudad);
-    postalCode.sendKeys(postalcode);
-    country.sendKeys(pais);
-    phoneNumber.sendKeys(number);
-    cityAddres.sendKeys(direccion);
-    continueButton.click();
-
-}
+            secondname.clear();
+            name.sendKeys(nombre);
+            secondname.sendKeys(apellidos);
+            country.sendKeys(pais);
+            city.sendKeys(ciudad);
+            postalCode.sendKeys(postalcode);
+            country.sendKeys(pais);
+            phoneNumber.sendKeys(number);
+            cityAddres.sendKeys(direccion);
+            continueButton.click();   name.clear();
+        }
 
         wait.until(ExpectedConditions.elementToBeClickable(continueButton)).click();
         try {
