@@ -99,8 +99,7 @@ public class CartPage {
      {
          shipping.sendKeys("Spain");
          zipCode.sendKeys("46018");
-         buttonShipping.click();
-
+         wait.until(ExpectedConditions.elementToBeClickable(buttonShipping)).click();
          return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//html/body/div[4]/div[1]/div[4]/div/div/div[2]/div/form/div[2]/div[1]/div[2]/div/ul/li[1]/span")));
 
 
