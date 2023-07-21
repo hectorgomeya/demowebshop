@@ -16,6 +16,7 @@ public class PageObjectManager {
     private CartPage cartPage;
     private CheckOutPage checkOutPage;
     private ProductPage productPage;
+    private WishListPage wishListPage;
     public Map<String, String> contextData;
 
     public PageObjectManager(WebDriver driver, WebDriverWait wait, Map<String, String> contextData){
@@ -36,4 +37,6 @@ public class PageObjectManager {
         return (checkOutPage == null) ? checkOutPage = new CheckOutPage(driver, wait) : checkOutPage;    }
     public ProductPage getProductPage() {
         return (productPage == null) ? productPage = new ProductPage(driver, wait) : productPage;    }
+    public WishListPage getWishListPage() {
+        return (wishListPage == null) ? wishListPage = new WishListPage(driver, wait) : wishListPage;    }
 }

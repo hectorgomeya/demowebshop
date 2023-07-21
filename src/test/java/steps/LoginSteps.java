@@ -51,7 +51,6 @@ public class LoginSteps {
 
                 Assert.assertTrue(loginCheckCorrect.getText()
                         .contains(username));
-                takeImages(scenario);
 
                 break;
             case "incorrect":
@@ -59,7 +58,6 @@ public class LoginSteps {
 
                 WebElement loginCheckIncorrect = loginPage.login(username, password, flag);
                 Assert.assertTrue(loginCheckIncorrect.getText().contains("Login was unsuccessful"));
-                takeImages(scenario);
 
                 break;
 
@@ -67,7 +65,6 @@ public class LoginSteps {
 
                 WebElement emailIncorrecto = loginPage.login(username, password, flag);
                 Assert.assertTrue(emailIncorrecto.getText().contains("Please enter a valid email address."));
-                takeImages(scenario);
 
 
 
@@ -79,7 +76,6 @@ public class LoginSteps {
     public void logOut() throws Exception {
         String result = loginPage.logOut();
         Assert.assertTrue(result.contains("Register"));
-        takeImages(scenario);
 
 
 

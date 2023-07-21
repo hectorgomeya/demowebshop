@@ -132,6 +132,7 @@ public class HomeSteps {
     @And("Add to wish list")
     public void addWish() {
         productPage.addWishList();
+        String current_url = testContext.getDriverManager().getDriver().getCurrentUrl();
         Assert.assertTrue(testContext.getDriverManager().getDriver().getCurrentUrl().contains("wishlist"));
 
 

@@ -65,6 +65,14 @@ public class ProductPage {
         WebElement addwish= driver.findElement(By.xpath("//*[@value='Add to wishlist']"));
 
         wait.until(ExpectedConditions.elementToBeClickable(addwish)).click();
+        WebElement buttonwish = driver.findElement(By.xpath("/html/body/div[4]/div[1]/div[1]/div[2]/div[1]/ul/li[4]/a/span[1]"));
+        buttonwish.click();
+
+        try {
+            sleep(500);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
 
 
     }
