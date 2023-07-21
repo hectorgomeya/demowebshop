@@ -119,12 +119,21 @@ public class HomeSteps {
 
         productPage.addReview();
         WebElement message = productPage.review();
-        Assert.assertTrue(!message.getText().contains("Only registered users can write reviews"));
+        Assert.assertTrue(message.getText().contains("Only registered users can write reviews"));
         WebElement message2 = productPage.reviewProduct(review, test, puntuacion);
         Assert.assertTrue(message2.getText().contains("Product review is successfully added."));
 
 
 
+
+
+    }
+
+    @And("Add to wish list")
+    public void addWish() {
+       WebElement wishlist =  productPage.addWishList();
+        Assert.assertTrue(wishlist.getText().contains("The product has been added to your "));
+        Assert.assertTrue(testContext.getDriverManager().getDriver().getCurrentUrl().contains("wishlist"));
 
 
     }

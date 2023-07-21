@@ -10,6 +10,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.Map;
 
+import static java.lang.Thread.sleep;
+
 public class ProductPage {
     private WebDriver driver;
     private WebDriverWait wait;
@@ -22,12 +24,13 @@ public class ProductPage {
 
     public void addCart() {
        WebElement addCart = driver.findElement(By.className("add-to-cart-button"));
-       addCart.click();
+        wait.until(ExpectedConditions.elementToBeClickable(addCart)).click();
+
     }
 
     public void addReview(){
         WebElement addReview = driver.findElement(By.xpath("//*[@id=\"product-details-form\"]/div/div[1]/div[2]/div[5]/div[2]/a[2]"));
-        addReview.click();
+        wait.until(ExpectedConditions.elementToBeClickable(addReview)).click();
 
     }
 
@@ -51,6 +54,26 @@ public class ProductPage {
         return message;
 
     }
+
+    public WebElement addWishList() {
+
+        try {
+            sleep(500);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        WebElement addwish= driver.findElement(By.xpath("//*[@value='Add to wishlist']"));
+
+        wait.until(ExpectedConditions.elementToBeClickable(addwish)).click();
+        boolean prueba = addwish.isDisplayed();
+        if (prueba) {
+            return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"bar-notification\"]/p/text()\n")));
+        }
+return  null;
+
+    }
+
+
 
 
 
