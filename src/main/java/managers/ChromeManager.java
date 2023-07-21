@@ -39,7 +39,7 @@ public class ChromeManager {
     //Si no hay wait lo crea
     public WebDriverWait getWait(){
         if (wait == null) {
-            wait = new WebDriverWait(driver, Duration.ofSeconds(60));
+            wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         }
         return wait;
     }

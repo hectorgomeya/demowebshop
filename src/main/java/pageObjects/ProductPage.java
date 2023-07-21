@@ -55,7 +55,7 @@ public class ProductPage {
 
     }
 
-    public WebElement addWishList() {
+    public void addWishList() {
 
         try {
             sleep(500);
@@ -65,11 +65,7 @@ public class ProductPage {
         WebElement addwish= driver.findElement(By.xpath("//*[@value='Add to wishlist']"));
 
         wait.until(ExpectedConditions.elementToBeClickable(addwish)).click();
-        boolean prueba = addwish.isDisplayed();
-        if (prueba) {
-            return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"bar-notification\"]/p/text()\n")));
-        }
-return  null;
+
 
     }
 
